@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Design with Animations</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            animation: fadeInBody 1s ease-in-out; /* Fade-in effect for body */
+        }
+
+        /* Fade-in Animation for Body */
+        @keyframes fadeInBody {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideDownNav 0.5s ease-out; /* Slide-down animation for navbar */
+        }
+
+        @keyframes slideDownNav {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #18bc9c;
+            transform: translateY(-3px); /* Slight hover lift */
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: #18bc9c;
+            transition: width 0.3s ease;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%; /* Underline effect on hover */
+        }
+
+        /* Wrapper for the Page */
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            animation: fadeInContent 1s ease-out; /* Fade-in animation for content */
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sidebar (left and right borders) */
+        .sidebar {
+            width: 18%;
+            background-color: white;
+            padding: 20px;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #18bc9c;
+            border-right: 5px solid #18bc9c;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInSidebar 0.5s ease-out forwards; /* Slide-in animation for sidebar */
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideInSidebar {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Main Content Area */
+        .main-content {
+            width: 65%;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #18bc9c;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            animation: fadeInFooter 0.5s ease-out forwards; /* Footer fade-in */
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInFooter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .page-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sidebar {
+                width: 90%;
+                margin: 10px 0;
+                display: none; /* Hide sidebar on small screens */
+            }
+
+            .main-content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            footer {
+                padding: 10px 0;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+
+        <!-- Left Sidebar (Optional) -->
+        <div class="sidebar">
+            <h3>Links & Widgets</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+
+            <h3>Featured Widgets</h3>
+            <div class="widget">
+                <h4>Recent Posts</h4>
+                <ul>
+                    <li><a href="#">How to Improve Your Website</a></li>
+                    <li><a href="#">Top 10 Web Design Tips</a></li>
+                    <li><a href="#">Best Practices for UI/UX</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Welcome to My Website</h1>
+            <div class="content">
+                <p>
+                    Welcome to my website! I hope you enjoy exploring all the content we have to offer. We are dedicated to providing high-quality services with an excellent user experience. Whether you're a new visitor or a returning one, we guarantee a seamless and delightful experience.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula risus et diam malesuada, ut auctor arcu tincidunt. Integer eu odio ut arcu laoreet volutpat non et lorem. Etiam et sem id turpis vehicula fermentum. Integer hendrerit sem in odio sodales, ac bibendum urna suscipit.
+                </p>
+            </div>
+        </div>
+
+    </div> <!-- End of Page Wrapper -->
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Suniga Elegant Designs. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
